@@ -1,0 +1,2 @@
+# HiyoLogEditor
+TRPG セッションのログエディタ
