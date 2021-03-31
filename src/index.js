@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/logEditor.css';
+import './css/darkmode.css';
+import './css/wideScreenMode.css';
 import FileLoader from './fileload/fileLoad.js';
 
 const e = React.createElement;
