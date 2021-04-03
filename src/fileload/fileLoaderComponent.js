@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import FileLoader from './fileLoad.js';
 
 class FileLoaderComponent extends React.Component {
