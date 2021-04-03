@@ -1,36 +1,58 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import LogList from './logList.js';
 
 class Editor extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            doms: [
+                props.log.doms,
+                [],
+                []
+            ]
+        };
+    }
+
     render() {
         return (
         <div>
             <div
-                class="editBlock"
+                className="editBlock"
                 id="mainEditor">
 				    <h2>出力</h2>
-                    <button class="io-github-shunshun94-trpg-logEditor-save">保存する</button>
-				    <div class="logList"></div>
+                    <button 
+                        className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
+				    <LogList
+                        doms={this.state.doms[0]}
+                    ></LogList>
 			</div>
 			<div id="tmpEditor">
-                <div class="editBlock" id="tmpEditorA">
+                <div
+                    className="editBlock"
+                    id="tmpEditorA">
                     <h2>一時置き場A</h2>
-                    <button class="io-github-shunshun94-trpg-logEditor-save">保存する</button>
-                    <div class="logList"></div>
+                    <button className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
+                    <LogList
+                        doms={this.state.doms[1]}
+                    ></LogList>
                 </div>
-                <div class="editBlock" id="tmpEditorB">
+                <div
+                    className="editBlock"
+                    id="tmpEditorB">
                     <h2>一次置き場B</h2>
-                    <button class="io-github-shunshun94-trpg-logEditor-save">保存する</button>
-                    <div class="logList"></div>
+                    <button className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
+                    <LogList
+                        doms={this.state.doms[2]}
+                    ></LogList>
                 </div>
             </div>
             <div id="menu">
-				<button class="menu-nameMenu">名前に関して設定</button>
-				<button class="menu-styleReset">style を全削除</button>
-				<button class="menu-idInsertion">全ての見出しにランダムな ID を挿入</button>
-				<button class="menu-systemToPost">System の発言を個人の発言に変換</button>
-				<button class="menu-editorVisual">ナイトモード ON/OFF</button>
-				<button class="io-github-shunshun94-trpg-logEditor-preview">プレビュー</button>
+				<button className="menu-nameMenu">名前に関して設定</button>
+				<button className="menu-styleReset">style を全削除</button>
+				<button className="menu-idInsertion">全ての見出しにランダムな ID を挿入</button>
+				<button className="menu-systemToPost">System の発言を個人の発言に変換</button>
+				<button className="menu-editorVisual">ナイトモード ON/OFF</button>
+				<button className="io-github-shunshun94-trpg-logEditor-preview">プレビュー</button>
 			</div>
         </div>
         );
