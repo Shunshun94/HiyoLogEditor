@@ -29,7 +29,9 @@ class LogEditor extends React.Component {
     render() {
         if(this.state.elems.doms.length) {
             return(
-                <Editor></Editor>
+                <Editor
+                    log={this.state.elems}
+                ></Editor>
             );
         } else {
             return (
