@@ -8,14 +8,22 @@ class LogList extends React.Component {
         this.state = {
             doms: props.doms
         };
-        console.log(this.state.doms);
     }
 
     render() {
+        const posts = this.state.doms.map((post, cursor)=>{
+            return (
+                <Post
+                    key={cursor}
+                    dom={post}
+                ></Post>
+            );
+        });
+
         return(
             <div
                 className="logList">
-            {this.state.doms.length}
+            {posts}
             </div>
         );
     }
