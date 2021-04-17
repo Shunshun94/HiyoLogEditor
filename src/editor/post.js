@@ -16,6 +16,7 @@ class Post extends React.Component {
     render() {
         return(
             <div
+                key={this.props.key}
                 className="io-github-shunshun94-trpg-logEditor-Post"
             >
                 <div className="io-github-shunshun94-trpg-logEditor-Post-handle">≡</div>
@@ -68,5 +69,62 @@ class Post extends React.Component {
         );
     }
 };
+
+Post.getHtml = (dom, key) => {
+    return(
+        <div
+            key={key}
+            className="io-github-shunshun94-trpg-logEditor-Post"
+        >
+            <div className="io-github-shunshun94-trpg-logEditor-Post-handle">≡</div>
+            <div className="io-github-shunshun94-trpg-logEditor-Post-params">
+                <span className="io-github-shunshun94-trpg-logEditor-Post-params-param">tag
+                    <input
+                        type="text"
+                        value={dom.tag}
+                        list="io-github-shunshun94-trpg-logEditor-candidates-tags"
+                        className="io-github-shunshun94-trpg-logEditor-Post-params-param-input io-github-shunshun94-trpg-logEditor-Post-params-param-input-tag" />
+                </span>
+                <span className="io-github-shunshun94-trpg-logEditor-Post-params-param">id
+                    <input
+                        type="text"
+                        value={dom.id}
+                        className="io-github-shunshun94-trpg-logEditor-Post-params-param-input io-github-shunshun94-trpg-logEditor-Post-params-param-input-id" />
+                    <button className="io-github-shunshun94-trpg-logEditor-Post-params-param-button io-github-shunshun94-trpg-logEditor-Post-params-param-button-random_id">ランダムのID</button>
+                </span>
+                <span className="io-github-shunshun94-trpg-logEditor-Post-params-param">class
+                    <input
+                        type="text"
+                        value={dom.class}
+                        list="io-github-shunshun94-trpg-logEditor-candidates-classes"
+                        className="io-github-shunshun94-trpg-logEditor-Post-params-param-input io-github-shunshun94-trpg-logEditor-Post-params-param-input-class" />
+                    <button className="io-github-shunshun94-trpg-logEditor-Post-params-param-button io-github-shunshun94-trpg-logEditor-Post-params-param-button-toggle_sub">余談 ON/OFF</button>
+                </span>
+                <span class="io-github-shunshun94-trpg-logEditor-Post-params-param">style
+                    <input
+                        type="text"
+                        value={dom.style}
+                        className="io-github-shunshun94-trpg-logEditor-Post-params-param-input io-github-shunshun94-trpg-logEditor-Post-params-param-input-style" />
+                </span>
+            </div>
+            <p>発言者：<span
+                className="io-github-shunshun94-trpg-logEditor-Post-name"
+                contenteditable="true">{dom.name}</span></p>
+            <div 
+                className="io-github-shunshun94-trpg-logEditor-Post-content"
+                contenteditable="true">{dom.content}</div>
+            <button
+                title="発言を複製する"
+                className="io-github-shunshun94-trpg-logEditor-Post-duplicate">C</button>
+            <button
+                title="直上の発言に発言内容をマージする"
+                className="io-github-shunshun94-trpg-logEditor-Post-merge">M</button>
+            <button
+                title="発言を削除する"
+                className="io-github-shunshun94-trpg-logEditor-Post-delete">×</button>
+        </div>
+    );
+};
+
 
 export default Post;

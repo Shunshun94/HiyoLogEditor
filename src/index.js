@@ -12,9 +12,10 @@ class LogEditor extends React.Component {
     constructor(props) {
         super(props);
         this.onFileLoaded = this.onFileLoaded.bind(this);
+        this.onUpdatePosts = this.onUpdatePosts.bind(this);
         this.state = {
             elems: {
-                doms: [],
+                doms: [[], [], []],
                 head: '',
                 omitted: []
             }
@@ -25,12 +26,23 @@ class LogEditor extends React.Component {
         this.setState({
             elems: parsedFile
         });
-    } 
+    }
+    onUpdatePosts(doms) {
+        this.setState({
+            elems: {
+                doms: doms,
+                head: this.state.elems.head,
+                omitted: this.state.elems.omitted
+            }
+        });
+        console.log(this.state.elems.doms[0][0].content);
+    }
     render() {
-        if(this.state.elems.doms.length) {
+        if(this.state.elems.doms[0].length || this.state.elems.doms[1].length || this.state.elems.doms[2].length) {
             return(
                 <Editor
                     log={this.state.elems}
+                    onUpdatePosts={this.onUpdatePosts}
                 ></Editor>
             );
         } else {

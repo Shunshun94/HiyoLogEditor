@@ -4,13 +4,13 @@ import LogList from './logList.js';
 class Editor extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            doms: [
-                props.log.doms,
-                [],
-                []
-            ]
-        };
+    }
+
+    onUpdateDoms(listId, posts) {
+        const doms = this.props.log.doms.slice();
+        doms[listId] = posts;
+        console.log(listId, doms[listId][0]);
+        this.props.onUpdatePosts(doms);
     }
 
     render() {
@@ -23,7 +23,8 @@ class Editor extends React.Component {
                     <button 
                         className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
 				    <LogList
-                        doms={this.state.doms[0]}
+                        doms={this.props.log.doms[0]}
+                        onUpdateDoms={(doms)=>{this.onUpdateDoms(0, doms)}}
                     ></LogList>
 			</div>
 			<div id="tmpEditor">
@@ -33,7 +34,8 @@ class Editor extends React.Component {
                     <h2>一時置き場A</h2>
                     <button className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
                     <LogList
-                        doms={this.state.doms[1]}
+                        doms={this.props.log.doms[1]}
+                        onUpdateDoms={(doms)=>{this.onUpdateDoms(1, doms)}}
                     ></LogList>
                 </div>
                 <div
@@ -42,7 +44,8 @@ class Editor extends React.Component {
                     <h2>一次置き場B</h2>
                     <button className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
                     <LogList
-                        doms={this.state.doms[2]}
+                        doms={this.props.log.doms[2]}
+                        onUpdateDoms={(doms)=>{this.onUpdateDoms(2, doms)}}
                     ></LogList>
                 </div>
             </div>

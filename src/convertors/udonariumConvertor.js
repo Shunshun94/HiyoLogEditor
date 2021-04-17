@@ -31,7 +31,7 @@ UdonariumConvertor.dropEventToJson = (file) => {
 					}
 				}
 				resolve({
-					doms: list.sort((a,b)=>{return a.ts - b.ts}),
+					doms: [list.sort((a,b)=>{return a.ts - b.ts}), [], []],
 					omitted: [],
 					head: ''
 				});

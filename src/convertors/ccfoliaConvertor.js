@@ -59,7 +59,7 @@ CcfoliaConvertor.htmlToJson = (rawDom) => {
 	const header = CcfoliaConvertor.isDefaultHead(dom.head.outerHTML) ? '' : dom.head.outerHTML;
 	
 	return {
-		doms: list,
+		doms: [list, [], []],
 		omitted: omit,
 		head: header
 	};

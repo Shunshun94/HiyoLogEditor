@@ -14,8 +14,7 @@ class FileLoaderComponent extends React.Component {
         this.setState({
             bgColor: 'white'
         });
-        const self = this;
-        FileLoader.onDrop(e).then(self.props.onFileLoaded);
+        FileLoader.onDrop(e).then(this.props.onFileLoaded);
     }
 
     onDragLeave(e) {
