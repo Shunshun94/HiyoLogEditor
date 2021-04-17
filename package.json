@@ -1,5 +1,5 @@
 {
-  "name": "tmp-hiyo-log-editor",
+  "name": "hiyo-log-editor",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
@@ -12,6 +12,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-sortablejs": ">=6.0.0",
+    "sortablejs": ">=1.13.0",
     "web-vitals": "^1.1.1"
   },
   "scripts": {

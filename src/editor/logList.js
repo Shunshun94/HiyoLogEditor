@@ -1,6 +1,7 @@
+import { ReactSortable } from 'react-sortablejs';
 import React from 'react';
-
 import Post from './post.js'
+
 
 class LogList extends React.Component {
     constructor(props) {
@@ -23,7 +24,12 @@ class LogList extends React.Component {
         return(
             <div
                 className="logList">
+            <ReactSortable
+                list={this.state.doms}
+                setList={(newState) => this.setState({doms: newState})}
+            >
             {posts}
+            </ReactSortable>
             </div>
         );
     }
