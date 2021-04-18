@@ -23,13 +23,6 @@ class LogList extends React.Component {
     render() {
         const posts = this.state.doms.map((post, cursor)=>{
             return Post.getHtml(post, `_${cursor}`);
-            /*
-            return (
-                <Post
-                    key={'_' + cursor}
-                    dom={post}
-                ></Post>
-            );*/
         });
 
         return(

@@ -35,7 +35,6 @@ class LogEditor extends React.Component {
                 omitted: this.state.elems.omitted
             }
         });
-        console.log(this.state.elems.doms[0][0].content);
     }
     render() {
         if(this.state.elems.doms[0].length || this.state.elems.doms[1].length || this.state.elems.doms[2].length) {

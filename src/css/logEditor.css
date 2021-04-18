@@ -110,6 +110,11 @@
 	padding-bottom:80px;
 }
 
+.logList > div {
+	height:100%;
+	width:100%;
+}
+
 h2 {
 	margin-top:8px;
 	margin-bottom:8px;
