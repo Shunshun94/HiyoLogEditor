@@ -1,6 +1,9 @@
 import { ReactSortable } from "react-sortablejs";
+import { Sortable, MultiDrag} from "sortablejs"
 import React from 'react';
 import Post from './post.js'
+
+Sortable.mount(new MultiDrag());
 
 class LogList extends React.Component {
     constructor(props) {
@@ -34,6 +37,9 @@ class LogList extends React.Component {
                 className="logList">
             <ReactSortable
                 group="logLists"
+                handle=".io-github-shunshun94-trpg-logEditor-Post-handle"
+                selectedClass="io-github-shunshun94-trpg-logEditor-Post-selected"
+                multiDrag="true"
                 animation={200}
                 delayOnTouchStart={true}
                 delay={2}
