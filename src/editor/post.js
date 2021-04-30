@@ -81,7 +81,7 @@ Post.getHtml = (dom, key) => {
                 <span className="io-github-shunshun94-trpg-logEditor-Post-params-param">tag
                     <input
                         type="text"
-                        value={dom.tag}
+                        value={dom.tag || ''}
                         list="io-github-shunshun94-trpg-logEditor-candidates-tags"
                         className="io-github-shunshun94-trpg-logEditor-Post-params-param-input io-github-shunshun94-trpg-logEditor-Post-params-param-input-tag" />
                 </span>
@@ -110,9 +110,9 @@ Post.getHtml = (dom, key) => {
             <p>発言者：<span
                 className="io-github-shunshun94-trpg-logEditor-Post-name"
                 contenteditable="true">{dom.name}</span></p>
-            <div 
+            <textarea 
                 className="io-github-shunshun94-trpg-logEditor-Post-content"
-                contenteditable="true">{dom.content}</div>
+                contenteditable="true">{dom.content}</textarea>
             <button
                 title="発言を複製する"
                 className="io-github-shunshun94-trpg-logEditor-Post-duplicate">C</button>

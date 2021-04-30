@@ -15,10 +15,10 @@ CcfoliaConvertor.elementToJson = (elem) => {
 	const children = elem.children;
 	if(tagName === 'p' && children.length === 3) {
 		result.name = children[1].innerHTML.trim();
-		result.content = children[2].innerHTML.trim();
+		result.content = children[2].innerText.trim();
 		result.tabName = children[0].innerHTML.trim();
 	} else { 
-		result.content = elem.innerHTML.trim();
+		result.content = elem.innerText.trim();
 	}
 	result.title = elem.getAttribute('title') || '';
 	result.style = elem.getAttribute('style') || '';
