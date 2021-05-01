@@ -1,5 +1,6 @@
 import React from 'react';
 import LogList from './logList.js';
+import exporterFactory from './exporter/exporterFactory.js';
 
 class Editor extends React.Component {
     constructor(props) {
@@ -9,7 +10,6 @@ class Editor extends React.Component {
     onUpdateDoms(listId, posts) {
         const doms = this.props.log.doms.slice();
         doms[listId] = posts;
-        console.log(listId, doms[listId][0]);
         this.props.onUpdatePosts(doms);
     }
 

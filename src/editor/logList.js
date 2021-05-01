@@ -1,7 +1,7 @@
 import { ReactSortable } from "react-sortablejs";
 import { Sortable, MultiDrag} from "sortablejs"
 import React from 'react';
-import Post from './post.js'
+import Post from './post.js';
 
 Sortable.mount(new MultiDrag());
 
