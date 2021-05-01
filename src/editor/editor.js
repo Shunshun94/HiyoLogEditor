@@ -1,6 +1,6 @@
 import React from 'react';
 import LogList from './logList.js';
-import exporterFactory from './exporter/exporterFactory.js';
+//import exporterFactory from '../exporter/exporterFactory.js';
 
 class Editor extends React.Component {
     constructor(props) {
@@ -16,38 +16,25 @@ class Editor extends React.Component {
     render() {
         return (
         <div>
-            <div
-                className="editBlock"
-                id="mainEditor">
-				    <h2>出力</h2>
-                    <button 
-                        className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
-				    <LogList
-                        doms={this.props.log.doms[0]}
-                        onUpdateDoms={(doms)=>{this.onUpdateDoms(0, doms)}}
-                    ></LogList>
-			</div>
+                <LogList
+                    editorId="mainEditor"
+                    title="出力"
+                    doms={this.props.log.doms[0]}
+                    onUpdateDoms={(doms)=>{this.onUpdateDoms(0, doms)}}
+                ></LogList>
 			<div id="tmpEditor">
-                <div
-                    className="editBlock"
-                    id="tmpEditorA">
-                    <h2>一時置き場A</h2>
-                    <button className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
-                    <LogList
-                        doms={this.props.log.doms[1]}
-                        onUpdateDoms={(doms)=>{this.onUpdateDoms(1, doms)}}
-                    ></LogList>
-                </div>
-                <div
-                    className="editBlock"
-                    id="tmpEditorB">
-                    <h2>一次置き場B</h2>
-                    <button className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
-                    <LogList
-                        doms={this.props.log.doms[2]}
-                        onUpdateDoms={(doms)=>{this.onUpdateDoms(2, doms)}}
-                    ></LogList>
-                </div>
+                <LogList
+                    editorId="tmpEditorA"
+                    title="一時置き場A"
+                    doms={this.props.log.doms[1]}
+                    onUpdateDoms={(doms)=>{this.onUpdateDoms(1, doms)}}
+                ></LogList>
+                <LogList
+                    editorId="tmpEditorB"
+                    title="一時置き場B"
+                    doms={this.props.log.doms[2]}
+                    onUpdateDoms={(doms)=>{this.onUpdateDoms(2, doms)}}
+                ></LogList>
             </div>
             <div id="menu">
 				<button className="menu-nameMenu">名前に関して設定</button>

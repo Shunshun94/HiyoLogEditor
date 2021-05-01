@@ -27,20 +27,27 @@ class LogList extends React.Component {
 
         return(
             <div
-                className="logList">
-            <ReactSortable
-                group="logLists"
-                handle=".io-github-shunshun94-trpg-logEditor-Post-handle"
-                selectedClass="io-github-shunshun94-trpg-logEditor-Post-selected"
-                multiDrag="true"
-                animation={200}
-                delayOnTouchStart={true}
-                delay={2}
-                list={this.state.doms}
-                setList={this.sortDoms}
-            >
-            {posts}
-            </ReactSortable>
+                className="editBlock"
+                id={this.props.editorId}>
+                    <h2>{this.props.title}</h2>
+                    <button 
+                        className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
+                <div
+                    className="logList">
+                <ReactSortable
+                    group="logLists"
+                    handle=".io-github-shunshun94-trpg-logEditor-Post-handle"
+                    selectedClass="io-github-shunshun94-trpg-logEditor-Post-selected"
+                    multiDrag="true"
+                    animation={200}
+                    delayOnTouchStart={true}
+                    delay={2}
+                    list={this.state.doms}
+                    setList={this.sortDoms}
+                >
+                    {posts}
+                </ReactSortable>
+                </div>
             </div>
         );
     }
