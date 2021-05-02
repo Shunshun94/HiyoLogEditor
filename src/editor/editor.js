@@ -1,12 +1,7 @@
 import React from 'react';
 import LogList from './logList.js';
-//import exporterFactory from '../exporter/exporterFactory.js';
 
 class Editor extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     onUpdateDoms(listId, posts) {
         const doms = this.props.log.doms.slice();
         doms[listId] = posts;
@@ -20,6 +15,8 @@ class Editor extends React.Component {
                     editorId="mainEditor"
                     title="出力"
                     doms={this.props.log.doms[0]}
+                    head={this.props.log.head}
+                    omitted={this.props.log.omitted}
                     onUpdateDoms={(doms)=>{this.onUpdateDoms(0, doms)}}
                 ></LogList>
 			<div id="tmpEditor">
@@ -27,12 +24,16 @@ class Editor extends React.Component {
                     editorId="tmpEditorA"
                     title="一時置き場A"
                     doms={this.props.log.doms[1]}
+                    head={this.props.log.head}
+                    omitted={this.props.log.omitted}
                     onUpdateDoms={(doms)=>{this.onUpdateDoms(1, doms)}}
                 ></LogList>
                 <LogList
                     editorId="tmpEditorB"
                     title="一時置き場B"
                     doms={this.props.log.doms[2]}
+                    head={this.props.log.head}
+                    omitted={this.props.log.omitted}
                     onUpdateDoms={(doms)=>{this.onUpdateDoms(2, doms)}}
                 ></LogList>
             </div>

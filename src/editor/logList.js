@@ -2,6 +2,7 @@ import { ReactSortable } from "react-sortablejs";
 import { Sortable, MultiDrag} from "sortablejs"
 import React from 'react';
 import Post from './post.js';
+import exporterFactory from './../exporter/exporterFactory.js';
 
 Sortable.mount(new MultiDrag());
 
@@ -9,14 +10,24 @@ class LogList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            doms: props.doms.slice()
+            doms: props.doms.slice(),
+            head: props.head,
+            omitted: props.omitted
         };
         this.sortDoms = this.sortDoms.bind(this);
+        this.download = this.download.bind(this);
+        this.exporter = exporterFactory.getExporter();
+    }
+
+    download() {
+        exporterFactory.getExporter().exec(this.state.doms, this.state.head, this.state.omitted, false);
     }
 
     sortDoms(doms) {
         this.setState({
-            doms: doms
+            doms: doms,
+            head: this.state.head,
+            omitted: this.state.omitted
         });
     }
 
@@ -31,6 +42,7 @@ class LogList extends React.Component {
                 id={this.props.editorId}>
                     <h2>{this.props.title}</h2>
                     <button 
+                        onClick={this.download}
                         className="io-github-shunshun94-trpg-logEditor-save">保存する</button>
                 <div
                     className="logList">
